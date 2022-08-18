@@ -1,30 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-
-// Validates the first half of an email address.
-const validateText = (text) => {
-  // NOTE: Passes RFC 5322 but not tested on google's standard.
-  // eslint-disable-next-line no-useless-escape
-  const re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))$/;
-  return re.test(text) || text.length === 0;
-};
+import { Link } from 'react-router-dom';
 
 const messages = [
-  'hi',
-  'hello',
-  'hola',
-  'you-can-email-me-at-literally-anything! Really',
-  'well, not anything. But most things',
-  'like-this',
-  'or-this',
-  'but not this :(  ',
-  'you.can.also.email.me.with.specific.topics.like',
-  'just-saying-hi',
-  'please-work-for-us',
-  'help',
-  'admin',
-  'or-I-really-like-your-website',
-  'thanks',
+  'Hello everyone!',
+  '¡Hola a todos!',
+  'सभी को नमस्कार',
+  'Bonjour tout le monde!',
+  'ਸਾਰੀਆਂ ਨੂੰ ਸਤ ਸ੍ਰੀ ਅਕਾਲ',
+  'Hallo alle zusammen!',
+  'Buongiorno a tutti!',
+  'Olá a todos!',
+  'Всем привет!',
+  '大 家 好！',
+  'こんにちは、みんな',
+  'Ciao a tutti',
+  'எல்லோருக்கும் வணக்கம்',
+  'مرحبا جميعا',
+  'ಎಲ್ಲರಿಗೂ ನಮಸ್ಕಾರ',
 ];
 
 const useInterval = (callback, delay) => {
@@ -45,7 +38,7 @@ const useInterval = (callback, delay) => {
   }, [delay]);
 };
 
-const EmailLink = ({ loopMessage }) => {
+const Hello = ({ loopMessage }) => {
   const hold = 50; // ticks to wait after message is complete before rendering next message
   const delay = 50; // tick length in mS
 
@@ -78,24 +71,21 @@ const EmailLink = ({ loopMessage }) => {
   return (
     <div
       className="inline-container"
-      style={validateText(message) ? {} : { color: 'red' }}
-      onMouseEnter={() => setIsActive(false)}
-      onMouseLeave={() => (idx < messages.length) && setIsActive(true)}
+      style={{}}
+    //   onMouseEnter={() => setIsActive(false)}
+    //   onMouseLeave={() => (idx < messages.length) && setIsActive(true)}
     >
-      <a href={validateText(message) ? `mailto:${message}@gurnameh.com` : ''}>
-        <span>{message}</span>
-        <span>@gurnameh.com</span>
-      </a>
+      <h2 data-testid="heading"><Link to="/">{message}</Link></h2>
     </div>
   );
 };
 
-EmailLink.defaultProps = {
+Hello.defaultProps = {
   loopMessage: false,
 };
 
-EmailLink.propTypes = {
+Hello.propTypes = {
   loopMessage: PropTypes.bool,
 };
 
-export default EmailLink;
+export default Hello;

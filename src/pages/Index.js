@@ -2,19 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Main from '../layouts/Main';
+import Hello from '../components/hello/hello';
 
 const Index = () => (
   <Main
-    description={"Michael D'Angelo's personal website. New York based Stanford ICME graduate, "
-    + 'co-founder and CTO of Arthena, and YC Alumni.'}
+    description={"Gurunameh Singh Chhatwal's personal website. Senior at UIET, Panjab University."}
   >
     <article className="post" id="index">
       <header>
         <div className="title">
-          <h2 data-testid="heading"><Link to="/">About this site</Link></h2>
+          <Hello loopMessage />
           <p>
-            A beautiful, responsive, statically-generated,
-            react application written with modern Javascript.
+            Wanna meet me? <a href="https://calendly.com/gurunameh/30min" target="_blank" rel="noreferrer">Click here</a> to make it happen.
           </p>
         </div>
       </header>
@@ -25,7 +24,6 @@ const Index = () => (
         view <Link to="/stats">site statistics</Link>, {' '}
         or <Link to="/contact">contact</Link> me.
       </p>
-      <p> Source available <a href="https://github.com/mldangelo/personal-site">here</a>.</p>
     </article>
   </Main>
 );
