@@ -37,6 +37,27 @@
 		}
 	}
 
+	.publications {
+		.title {
+			text-align: center;
+		}
+		.paper {
+			margin: 1em;
+			p{
+				margin: 0;
+			}
+		}
+	}
+
+	.pub-container {
+		margin: 1em;
+		.desc {
+			font-size: 0.9em;
+			margin: 0;
+			padding: 0;
+		}
+	}
+
 	.jobs-container {
 		.points {
 			li {
@@ -46,6 +67,8 @@
 			}
 		}
 	}
+
+	
 
 	.courses {
 		padding-top: 1.6em;
